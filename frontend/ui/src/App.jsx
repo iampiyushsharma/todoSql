@@ -15,7 +15,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/')
+      const response = await axios.get('https://todosql.onrender.com/')
       console.log(response)
       setTasks(response.data)
     } catch (error) {
@@ -25,7 +25,7 @@ function App() {
 
   const createTask = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/', { title: newTask })
+      const response = await axios.post('https://todosql.onrender.com/', { title: newTask })
       setTasks([...tasks, response.data]);
       //setNewSn('')
       setNewTask('')
@@ -39,7 +39,7 @@ function App() {
   const deleteTask = async (taskId) => {
     console.log(taskId);
     try {
-      await axios.delete(`http://localhost:3000/`, { data:{id: taskId} })
+      await axios.delete(`https://todosql.onrender.com/`, { data:{id: taskId} })
       fetchTasks();
     } catch (error) {
       console.error(error)
@@ -52,7 +52,7 @@ function App() {
 
   const update = async (taskId) => {
     try {
-      const response = await axios.patch('http://localhost:3000/', {title: newTask, id: taskId} )
+      const response = await axios.patch('https://todosql.onrender.com/', {title: newTask, id: taskId} )
       setTasks([...tasks, response.data]);
       //setNewSn('')
       setNewTask('')
